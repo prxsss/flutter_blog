@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:blog_app/sign_up_choice_screen.dart';
+// import 'package:blog_app/sign_up_choice_screen.dart';
 // import 'package:blog_app/sign_in_choice_screen.dart';
+import 'package:blog_app/blog.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,8 +15,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SignUpChoiceScreen(),
+      // home: SignUpChoiceScreen(),
       // home: SignInChoiceScreen(),
+      home: Blog(),
     );
   }
 }

@@ -20,10 +20,17 @@ class _AuthWrapperState extends State<AuthWrapper> {
     });
   }
 
+  void logout() {
+    setState(() {
+      isAuthenticated = false;
+      print('isAuthenticated: $isAuthenticated');
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return isAuthenticated
-        ? const MainLayout()
+        ? MainLayout(onLogoutPressed: logout)
         : AuthScreen(setAuthenticated: setAuthenticated);
   }
 }

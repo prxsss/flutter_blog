@@ -6,7 +6,9 @@ import 'package:blog_app/presentation/screens/search_screen.dart';
 import 'package:blog_app/presentation/screens/profile_screen.dart';
 
 class MainLayout extends StatefulWidget {
-  const MainLayout({super.key});
+  const MainLayout({super.key, required this.onLogoutPressed});
+
+  final void Function() onLogoutPressed;
 
   @override
   State<MainLayout> createState() => _MainLayoutState();
@@ -36,6 +38,16 @@ class _MainLayoutState extends State<MainLayout> {
           appBarTitle,
           style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
+        actions: [
+          activeScreen == 2
+              ? IconButton(
+                onPressed: () {
+                  widget.onLogoutPressed();
+                },
+                icon: const FaIcon(FontAwesomeIcons.rightFromBracket, size: 20),
+              )
+              : const SizedBox(),
+        ],
       ),
       body: screenWidget,
       bottomNavigationBar: Container(

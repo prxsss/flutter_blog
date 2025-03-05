@@ -1,6 +1,6 @@
 # Flutter Blog
 
-A new Flutter project.
+The mobile-based project, 'Flutter Blog' is a platform to read, write, and enrich your knowledge, inspired by Medium.
 
 ## Members
 

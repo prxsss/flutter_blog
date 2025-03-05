@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SignUpFormScreen extends StatefulWidget {
-  const SignUpFormScreen({super.key});
+  const SignUpFormScreen({super.key, required this.onCreateAccountPressed});
+
+  final void Function() onCreateAccountPressed;
 
   @override
   State<SignUpFormScreen> createState() => _SignUpFormScreenState();
@@ -147,7 +149,10 @@ class _SignUpFormScreenState extends State<SignUpFormScreen> {
               width: double.infinity,
               padding: const EdgeInsets.symmetric(horizontal: 60),
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  widget.onCreateAccountPressed();
+                  Navigator.pop(context);
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xff1a8917),
                 ),

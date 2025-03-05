@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 // import 'package:blog_app/sign_up_choice_screen.dart';
 // import 'package:blog_app/sign_in_choice_screen.dart';
-import 'package:blog_app/presentation/screens/main_layout.dart';
+import 'package:blog_app/presentation/screens/auth_wrapper.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       // home: SignUpChoiceScreen(),
       // home: SignInChoiceScreen(),
-      home: MainLayout(),
+      home: AuthWrapper(),
     );
   }
 }

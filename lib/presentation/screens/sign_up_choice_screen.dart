@@ -4,9 +4,14 @@ import 'package:blog_app/presentation/screens/sign_up_form_screen.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SignUpChoiceScreen extends StatelessWidget {
-  const SignUpChoiceScreen({super.key, required this.onSignUpButtonPressed});
+  const SignUpChoiceScreen({
+    super.key,
+    required this.onSignUpButtonPressed,
+    required this.onNavigateToSignInScreenPressed,
+  });
 
   final void Function() onSignUpButtonPressed;
+  final void Function() onNavigateToSignInScreenPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +72,9 @@ class SignUpChoiceScreen extends StatelessWidget {
               children: [
                 const Text('Already have an account? '),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    onNavigateToSignInScreenPressed();
+                  },
                   child: const Text(
                     'Sign in',
                     style: TextStyle(color: Colors.green),

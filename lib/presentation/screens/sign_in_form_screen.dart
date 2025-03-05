@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SignInFormScreen extends StatefulWidget {
-  const SignInFormScreen({super.key});
+  const SignInFormScreen({super.key, required this.onContinueButtonPressed});
+
+  final void Function() onContinueButtonPressed;
 
   @override
   State<SignInFormScreen> createState() => _SignInFormScreenState();
@@ -113,7 +115,10 @@ class _SignInFormScreenState extends State<SignInFormScreen> {
               width: double.infinity,
               padding: const EdgeInsets.symmetric(horizontal: 60),
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  widget.onContinueButtonPressed();
+                  Navigator.pop(context);
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xff1a8917),
                 ),

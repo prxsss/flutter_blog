@@ -5,7 +5,14 @@ import 'package:blog_app/presentation/screens/sign_in_form_screen.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SignInChoiceScreen extends StatelessWidget {
-  const SignInChoiceScreen({super.key});
+  const SignInChoiceScreen({
+    super.key,
+    required this.onSignInButtonPressed,
+    required this.onNavigateToSignUpScreenPressed,
+  });
+
+  final void Function() onSignInButtonPressed;
+  final void Function() onNavigateToSignUpScreenPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +48,9 @@ class SignInChoiceScreen extends StatelessWidget {
             AuthButton(
               icon: FontAwesomeIcons.google,
               text: 'Sign in with Google',
-              onAuthButtonPressed: () {},
+              onAuthButtonPressed: () {
+                onSignInButtonPressed();
+              },
             ),
             AuthButton(
               icon: FontAwesomeIcons.envelope,
@@ -50,7 +59,10 @@ class SignInChoiceScreen extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const SignInFormScreen(),
+                    builder:
+                        (context) => SignInFormScreen(
+                          onContinueButtonPressed: onSignInButtonPressed,
+                        ),
                   ),
                 );
               },
@@ -61,7 +73,9 @@ class SignInChoiceScreen extends StatelessWidget {
               children: [
                 const Text("Don't have an account? "),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    onNavigateToSignUpScreenPressed();
+                  },
                   child: const Text(
                     'Sign up',
                     style: TextStyle(color: Colors.green),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:blog_app/presentation/screens/main_layout.dart';
-import 'package:blog_app/presentation/screens/sign_up_choice_screen.dart';
+import 'package:blog_app/presentation/screens/auth_screen.dart';
 
 class AuthWrapper extends StatefulWidget {
   const AuthWrapper({super.key});
@@ -24,6 +24,6 @@ class _AuthWrapperState extends State<AuthWrapper> {
   Widget build(BuildContext context) {
     return isAuthenticated
         ? const MainLayout()
-        : SignUpChoiceScreen(onSignUpButtonPressed: setAuthenticated);
+        : AuthScreen(setAuthenticated: setAuthenticated);
   }
 }

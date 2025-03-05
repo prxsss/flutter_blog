@@ -1,37 +1,7 @@
+import 'dart:math' as math;
+import 'package:blog_app/presentation/screens/blog_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'dart:math' as math;
-
-import 'package:blog_app/blog_detail_screen.dart';
-
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
-
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  @override
-  Widget build(BuildContext context) {
-    return const BlogListings();
-  }
-}
-
-class BlogListings extends StatelessWidget {
-  const BlogListings({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView.separated(
-      itemBuilder: (context, index) {
-        return const BlogListing();
-      },
-      separatorBuilder: (context, index) => const Divider(),
-      itemCount: 10,
-    );
-  }
-}
 
 class BlogListing extends StatelessWidget {
   const BlogListing({super.key});

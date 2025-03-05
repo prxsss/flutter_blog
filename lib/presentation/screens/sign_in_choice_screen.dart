@@ -1,6 +1,7 @@
+import 'package:blog_app/presentation/widgets/auth_button.dart';
 import 'package:flutter/material.dart';
 
-import 'package:blog_app/sign_in_form_screen.dart';
+import 'package:blog_app/presentation/screens/sign_in_form_screen.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SignInChoiceScreen extends StatelessWidget {
@@ -37,15 +38,15 @@ class SignInChoiceScreen extends StatelessWidget {
               style: TextStyle(fontSize: 14, color: Colors.grey),
             ),
             const SizedBox(height: 40),
-            SignInChoiceButton(
+            AuthButton(
               icon: FontAwesomeIcons.google,
               text: 'Sign in with Google',
-              onSignUpButtonPressed: () {},
+              onAuthButtonPressed: () {},
             ),
-            SignInChoiceButton(
+            AuthButton(
               icon: FontAwesomeIcons.envelope,
               text: 'Sign in with Email',
-              onSignUpButtonPressed: () {
+              onAuthButtonPressed: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -69,39 +70,6 @@ class SignInChoiceScreen extends StatelessWidget {
               ],
             ),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class SignInChoiceButton extends StatelessWidget {
-  final IconData icon;
-  final String text;
-  final void Function() onSignUpButtonPressed;
-
-  const SignInChoiceButton({
-    super.key,
-    required this.icon,
-    required this.text,
-    required this.onSignUpButtonPressed,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: ElevatedButton.icon(
-        onPressed: () {
-          onSignUpButtonPressed();
-        },
-        icon: FaIcon(icon, color: Colors.black),
-        label: Text(text, style: const TextStyle(color: Colors.black)),
-        style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.white,
-          side: const BorderSide(color: Colors.black),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-          minimumSize: const Size(double.infinity, 50),
         ),
       ),
     );

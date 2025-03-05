@@ -1,18 +1,18 @@
-import 'package:blog_app/home_screen.dart';
+import 'package:blog_app/presentation/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'package:blog_app/search_screen.dart';
-import 'package:blog_app/profile_screen.dart';
+import 'package:blog_app/presentation/screens/search_screen.dart';
+import 'package:blog_app/presentation/screens/profile_screen.dart';
 
-class Blog extends StatefulWidget {
-  const Blog({super.key});
+class MainLayout extends StatefulWidget {
+  const MainLayout({super.key});
 
   @override
-  State<Blog> createState() => _BlogState();
+  State<MainLayout> createState() => _MainLayoutState();
 }
 
-class _BlogState extends State<Blog> {
+class _MainLayoutState extends State<MainLayout> {
   var activeScreen = 0;
 
   @override

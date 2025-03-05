@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:blog_app/sign_up_form_screen.dart';
+import 'package:blog_app/presentation/screens/sign_up_form_screen.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SignUpChoiceScreen extends StatelessWidget {

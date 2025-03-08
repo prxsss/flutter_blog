@@ -27,6 +27,11 @@ class BlogListing extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: Colors.grey,
                     borderRadius: BorderRadius.circular(10),
+                    image: const DecorationImage(
+                      image: NetworkImage(
+                        'https://avatar.iran.liara.run/public/boy?username=Arunangshu',
+                      ),
+                    ),
                   ),
                 ),
                 const SizedBox(width: 10),

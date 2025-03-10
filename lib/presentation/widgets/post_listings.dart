@@ -1,14 +1,14 @@
-import 'package:blog_app/presentation/widgets/blog_listing.dart';
+import 'package:blog_app/presentation/widgets/post_listing.dart';
 import 'package:flutter/material.dart';
 
-class BlogListings extends StatelessWidget {
-  const BlogListings({super.key});
+class PostListings extends StatelessWidget {
+  const PostListings({super.key});
 
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
       itemBuilder: (context, index) {
-        return const BlogListing();
+        return const PostListing();
       },
       separatorBuilder: (context, index) => const Divider(),
       itemCount: 10,

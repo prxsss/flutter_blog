@@ -1,10 +1,10 @@
 import 'dart:math' as math;
-import 'package:blog_app/presentation/screens/blog_detail_screen.dart';
+import 'package:blog_app/presentation/screens/post_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class BlogListing extends StatelessWidget {
-  const BlogListing({super.key});
+class PostListing extends StatelessWidget {
+  const PostListing({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class BlogListing extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const BlogDetailScreen()),
+          MaterialPageRoute(builder: (context) => const PostDetailScreen()),
         );
       },
       child: Padding(

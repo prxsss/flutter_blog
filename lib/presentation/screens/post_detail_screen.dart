@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 
-class BlogDetailScreen extends StatefulWidget {
-  const BlogDetailScreen({super.key});
+class PostDetailScreen extends StatefulWidget {
+  const PostDetailScreen({super.key});
 
   @override
-  State<BlogDetailScreen> createState() => _BlogDetailScreenState();
+  State<PostDetailScreen> createState() => _PostDetailScreenState();
 }
 
-class _BlogDetailScreenState extends State<BlogDetailScreen> {
+class _PostDetailScreenState extends State<PostDetailScreen> {
   String markdownSource = '''
 ![](https://miro.medium.com/v2/resize:fit:1024/0*vq-JSMynSHUPXx70)  
 

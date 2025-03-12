@@ -6,9 +6,9 @@ import 'package:blog_app/presentation/screens/search_screen.dart';
 import 'package:blog_app/presentation/screens/profile_screen.dart';
 
 class MainLayout extends StatefulWidget {
-  const MainLayout({super.key, required this.onLogoutPressed});
+  const MainLayout({super.key, required this.onConfirmSignOutPressed});
 
-  final void Function() onLogoutPressed;
+  final void Function() onConfirmSignOutPressed;
 
   @override
   State<MainLayout> createState() => _MainLayoutState();
@@ -42,7 +42,7 @@ class _MainLayoutState extends State<MainLayout> {
           activeScreen == 2
               ? IconButton(
                 onPressed: () {
-                  widget.onLogoutPressed();
+                  _displaySignOutConfirmationDialog(context);
                 },
                 icon: const FaIcon(FontAwesomeIcons.rightFromBracket, size: 20),
               )
@@ -96,6 +96,44 @@ class _MainLayoutState extends State<MainLayout> {
           ],
         ),
       ),
+    );
+  }
+
+  Future<dynamic> _displaySignOutConfirmationDialog(BuildContext context) {
+    return showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          backgroundColor: Colors.white,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+          title: const Text('Sign out', style: TextStyle(fontSize: 18)),
+          content: const Text(
+            'Do you really want to sign out from <App Name> app?',
+            style: TextStyle(color: Color(0xff6B6B6B)),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Text(
+                'Cancel',
+                style: TextStyle(color: Colors.black),
+              ),
+            ),
+            TextButton(
+              onPressed: () {
+                widget.onConfirmSignOutPressed();
+                Navigator.pop(context);
+              },
+              child: const Text(
+                'Confirm',
+                style: TextStyle(color: Colors.black),
+              ),
+            ),
+          ],
+        );
+      },
     );
   }
 }

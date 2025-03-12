@@ -30,7 +30,7 @@ class _AuthWrapperState extends State<AuthWrapper> {
   @override
   Widget build(BuildContext context) {
     return isAuthenticated
-        ? MainLayout(onLogoutPressed: logout)
+        ? MainLayout(onConfirmSignOutPressed: logout)
         : AuthScreen(setAuthenticated: setAuthenticated);
   }
 }

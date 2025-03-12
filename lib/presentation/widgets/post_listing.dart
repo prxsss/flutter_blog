@@ -4,7 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class PostListing extends StatelessWidget {
-  const PostListing({super.key});
+  const PostListing({
+    super.key,
+    this.showCommentCount = true,
+    this.showLikesCount = true,
+    this.showContentSample = true,
+  });
+
+  final bool showCommentCount;
+  final bool showLikesCount;
+  final bool showContentSample;
 
   @override
   Widget build(BuildContext context) {
@@ -44,10 +53,10 @@ class PostListing extends StatelessWidget {
             const SizedBox(height: 15),
             Row(
               children: [
-                const Expanded(
+                Expanded(
                   child: Column(
                     children: [
-                      Text(
+                      const Text(
                         "Express.js Secrets That Senior Developers Don't Share",
                         style: TextStyle(
                           color: Color(0xff242424),
@@ -55,11 +64,13 @@ class PostListing extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: 5),
-                      Text(
-                        'Express.js is often the go-to framework for building web application in Node.js.',
-                        style: TextStyle(color: Color(0xff6B6B6B)),
-                      ),
+                      const SizedBox(height: 5),
+                      showContentSample
+                          ? const Text(
+                            'Express.js is often the go-to framework for building web application in Node.js.',
+                            style: TextStyle(color: Color(0xff6B6B6B)),
+                          )
+                          : const SizedBox.shrink(),
                     ],
                   ),
                 ),
@@ -87,43 +98,47 @@ class PostListing extends StatelessWidget {
                   style: TextStyle(color: Color(0xff6B6B6B)),
                 ),
                 const SizedBox(width: 20),
-                RichText(
-                  text: const TextSpan(
-                    style: TextStyle(color: Color(0xff6B6B6B)),
-                    children: [
-                      WidgetSpan(
-                        child: FaIcon(
-                          FontAwesomeIcons.handsClapping,
-                          size: 16,
-                          color: Color(0xff6B6B6B),
-                        ),
-                      ),
-                      WidgetSpan(child: SizedBox(width: 5)),
-                      TextSpan(text: '158'),
-                    ],
-                  ),
-                ),
-                const SizedBox(width: 20),
-                RichText(
-                  text: TextSpan(
-                    style: const TextStyle(color: Color(0xff6B6B6B)),
-                    children: [
-                      WidgetSpan(
-                        child: Transform(
-                          alignment: Alignment.center,
-                          transform: Matrix4.rotationY(math.pi),
-                          child: const FaIcon(
-                            FontAwesomeIcons.solidComment,
-                            size: 16,
-                            color: Color(0xff6B6B6B),
+                showLikesCount
+                    ? RichText(
+                      text: const TextSpan(
+                        style: TextStyle(color: Color(0xff6B6B6B)),
+                        children: [
+                          WidgetSpan(
+                            child: FaIcon(
+                              FontAwesomeIcons.handsClapping,
+                              size: 16,
+                              color: Color(0xff6B6B6B),
+                            ),
                           ),
-                        ),
+                          WidgetSpan(child: SizedBox(width: 5)),
+                          TextSpan(text: '158'),
+                        ],
                       ),
-                      const WidgetSpan(child: SizedBox(width: 5)),
-                      const TextSpan(text: '10'),
-                    ],
-                  ),
-                ),
+                    )
+                    : const SizedBox.shrink(),
+                const SizedBox(width: 20),
+                showCommentCount
+                    ? RichText(
+                      text: TextSpan(
+                        style: const TextStyle(color: Color(0xff6B6B6B)),
+                        children: [
+                          WidgetSpan(
+                            child: Transform(
+                              alignment: Alignment.center,
+                              transform: Matrix4.rotationY(math.pi),
+                              child: const FaIcon(
+                                FontAwesomeIcons.solidComment,
+                                size: 16,
+                                color: Color(0xff6B6B6B),
+                              ),
+                            ),
+                          ),
+                          const WidgetSpan(child: SizedBox(width: 5)),
+                          const TextSpan(text: '10'),
+                        ],
+                      ),
+                    )
+                    : const SizedBox.shrink(),
               ],
             ),
           ],

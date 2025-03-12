@@ -18,14 +18,15 @@ class PostListing extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      behavior: HitTestBehavior.opaque,
       onTap: () {
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => const PostDetailScreen()),
         );
       },
-      child: Padding(
-        padding: const EdgeInsets.all(25),
+      child: Container(
+        padding: const EdgeInsets.all(24),
         child: Column(
           children: [
             Row(

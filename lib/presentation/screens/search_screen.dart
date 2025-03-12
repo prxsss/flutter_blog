@@ -13,11 +13,11 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-        child: Column(
-          children: [
-            TextField(
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+            child: TextField(
               decoration: InputDecoration(
                 contentPadding: const EdgeInsets.symmetric(
                   vertical: 8,
@@ -36,10 +36,11 @@ class _SearchScreenState extends State<SearchScreen> {
                 ),
               ),
             ),
-            const SizedBox(height: 20),
-            const PostListings(),
-          ],
-        ),
+          ),
+          const Divider(thickness: 0),
+          const SizedBox(height: 10),
+          const PostListings(),
+        ],
       ),
     );
   }

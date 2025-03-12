@@ -1,71 +1,45 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(SearchScreen());
-}
-
-// class MyApp extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       debugShowCheckedModeBanner: false,
-//       home: SearchScreen(),
-//     );
-//   }
-// }
+import 'package:blog_app/presentation/widgets/post_listings.dart';
 
 class SearchScreen extends StatefulWidget {
-  const SearchScreen({Key? key}) : super(key: key);
+  const SearchScreen({super.key});
 
   @override
-  _SearchScreenState createState() => _SearchScreenState();
+  State<SearchScreen> createState() => _SearchScreenState();
 }
 
 class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: SearchBar(),
-        backgroundColor: Colors.white,
-        elevation: 0,
-        automaticallyImplyLeading: false,
-      ),
-      // body: Center(
-      //   child: Text('No content available'),
-      // ),
-      
-    );
-  }
-}
-
-class SearchBar extends StatefulWidget {
-  @override
-  _SearchBarState createState() => _SearchBarState();
-}
-
-class _SearchBarState extends State<SearchBar> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 10),
-      decoration: BoxDecoration(
-        color: Colors.grey[200],
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Row(
-        children: [
-          Icon(Icons.search, color: Colors.black54),
-          SizedBox(width: 10),
-          Expanded(
-            child: TextField(
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+        child: Column(
+          children: [
+            TextField(
               decoration: InputDecoration(
-                hintText: 'Search',
-                border: InputBorder.none,
+                contentPadding: const EdgeInsets.symmetric(
+                  vertical: 8,
+                  horizontal: 12,
+                ),
+                filled: true,
+                fillColor: const Color(0xffF2F2F2),
+                hintText: 'Search....',
+                border: OutlineInputBorder(
+                  borderSide: BorderSide.none,
+                  borderRadius: BorderRadius.circular(6),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(6),
+                  borderSide: const BorderSide(color: Colors.black, width: 1.5),
+                ),
               ),
             ),
-          ),
-        ],
+            const SizedBox(height: 20),
+            const PostListings(),
+          ],
+        ),
       ),
     );
   }

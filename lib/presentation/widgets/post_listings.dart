@@ -11,7 +11,11 @@ class PostListings extends StatelessWidget {
       physics: const NeverScrollableScrollPhysics(),
       itemCount: 10,
       itemBuilder: (context, index) {
-        return const PostListing();
+        return const PostListing(
+          showContentSample: false,
+          showLikesCount: false,
+          showCommentCount: false,
+        );
       },
     );
   }

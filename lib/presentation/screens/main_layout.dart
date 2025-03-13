@@ -1,4 +1,5 @@
 import 'package:blog_app/presentation/screens/home_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -6,9 +7,7 @@ import 'package:blog_app/presentation/screens/search_screen.dart';
 import 'package:blog_app/presentation/screens/profile_screen.dart';
 
 class MainLayout extends StatefulWidget {
-  const MainLayout({super.key, required this.onConfirmSignOutPressed});
-
-  final void Function() onConfirmSignOutPressed;
+  const MainLayout({super.key});
 
   @override
   State<MainLayout> createState() => _MainLayoutState();
@@ -29,7 +28,7 @@ class _MainLayoutState extends State<MainLayout> {
 
     if (activeScreen == 2) {
       appBarTitle = 'Profile';
-      screenWidget = const ProfileScreen();
+      screenWidget = ProfileScreen();
     }
 
     return Scaffold(
@@ -123,7 +122,7 @@ class _MainLayoutState extends State<MainLayout> {
             ),
             TextButton(
               onPressed: () {
-                widget.onConfirmSignOutPressed();
+                FirebaseAuth.instance.signOut();
                 Navigator.pop(context);
               },
               child: const Text(

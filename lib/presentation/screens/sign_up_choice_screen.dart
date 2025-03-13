@@ -6,11 +6,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class SignUpChoiceScreen extends StatelessWidget {
   const SignUpChoiceScreen({
     super.key,
-    required this.onSignUpButtonPressed,
     required this.onNavigateToSignInScreenPressed,
   });
 
-  final void Function() onSignUpButtonPressed;
   final void Function() onNavigateToSignInScreenPressed;
 
   @override
@@ -47,9 +45,7 @@ class SignUpChoiceScreen extends StatelessWidget {
             SignUpChoiceButton(
               icon: FontAwesomeIcons.google,
               text: 'Sign up with Google',
-              onSignUpButtonPressed: () {
-                onSignUpButtonPressed();
-              },
+              onSignUpButtonPressed: () {},
             ),
             SignUpChoiceButton(
               icon: FontAwesomeIcons.envelope,
@@ -58,10 +54,7 @@ class SignUpChoiceScreen extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder:
-                        (context) => SignUpFormScreen(
-                          onCreateAccountPressed: onSignUpButtonPressed,
-                        ),
+                    builder: (context) => const SignUpFormScreen(),
                   ),
                 );
               },

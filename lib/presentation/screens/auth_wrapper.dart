@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:blog_app/presentation/screens/main_layout.dart';
@@ -11,26 +12,21 @@ class AuthWrapper extends StatefulWidget {
 }
 
 class _AuthWrapperState extends State<AuthWrapper> {
-  var isAuthenticated = false;
-
-  void setAuthenticated() {
-    setState(() {
-      isAuthenticated = true;
-      print('isAuthenticated: $isAuthenticated');
-    });
-  }
-
-  void logout() {
-    setState(() {
-      isAuthenticated = false;
-      print('isAuthenticated: $isAuthenticated');
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    return isAuthenticated
-        ? MainLayout(onConfirmSignOutPressed: logout)
-        : AuthScreen(setAuthenticated: setAuthenticated);
+    return StreamBuilder(
+      stream: FirebaseAuth.instance.authStateChanges(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator());
+        } else if (snapshot.hasError) {
+          return const Center(child: Text('Something went wrong'));
+        } else if (snapshot.hasData) {
+          return const MainLayout();
+        } else {
+          return const AuthScreen();
+        }
+      },
+    );
   }
 }

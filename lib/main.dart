@@ -12,16 +12,19 @@ void main() async {
   runApp(const MyApp());
 }
 
+final navigatorKey = GlobalKey<NavigatorState>();
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      navigatorKey: navigatorKey,
       debugShowCheckedModeBanner: false,
       // home: SignUpChoiceScreen(),
       // home: SignInChoiceScreen(),
-      home: AuthWrapper(),
+      home: const AuthWrapper(),
     );
   }
 }

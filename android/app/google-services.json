@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "48060965524",
+    "project_id": "flutter-open-post",
+    "storage_bucket": "flutter-open-post.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:48060965524:android:4d372244eb55efca9d8a81",
+        "android_client_info": {
+          "package_name": "com.example.blog_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMehxYu6ledlGcTuLdoHsj6_JKkK15uc0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
